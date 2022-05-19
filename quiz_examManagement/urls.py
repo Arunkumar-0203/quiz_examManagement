@@ -20,7 +20,7 @@ from quiz_app import admin_urls
 from quiz_app.views import IndexView, Regisrtaion, Login, add_staff, divisions, remove_division, remove_staff, staff, \
     staffs, create_question, staffview_questions, userindex, student_viewquestions, select_questionview, \
     staffViews_Answers, deatiledstaffViews_Answers, studentview_answers, deatiledstudentViews_Answers, payment, \
-    view_question_table, expire_questions
+    view_question_table, expire_questions, view_originalanswers
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -49,4 +49,5 @@ urlpatterns = [
     path('payment',payment.as_view()),
     path('view_question_table',view_question_table.as_view()),
     path('expire_questions',expire_questions.as_view()),
+    path('view_originalanswers',view_originalanswers.as_view())
 ]

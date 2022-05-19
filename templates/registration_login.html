@@ -178,20 +178,20 @@ alert("{{ message }}")
                         {% csrf_token %}
                       <div class="form-group">
                         <label for="exampleInputUsername1">Username</label>
-                        <input type="text" class="form-control" id="exampleInputUsername1" name="username" placeholder="Username">
+                        <input type="text" class="form-control" id="exampleInputUsername1" name="username" placeholder="Username" required="">
                       </div>
 
                       <div class="form-group">
                         <label for="exampleInputPassword1">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Password">
+                        <input type="password" class="form-control" id="exampleInputPassword1" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" name="password" placeholder="Password">
                       </div>
                         <div class="form-group">
                         <label for="exampleInputPassword1">Phone</label>
-                        <input type="number" class="form-control" id="exampleInputPassword1" name="phone" placeholder="Password">
+                        <input type="number" class="form-control" pattern="[6-9]{1}[0-9]{9}" required="" maxlength="10" id="exampleInputPassword1" name="phone" placeholder="phone">
                       </div>
                                               <div class="form-group">
                         <label for="exampleInputEmail1">Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" name="email" placeholder="Email">
+                        <input type="email" class="form-control" id="exampleInputEmail1" name="email" placeholder="Email" required="">
                       </div>
 {#                      <div class="form-group">#}
 {#                        <label for="exampleInputConfirmPassword1">Confirm Password</label>#}

@@ -33,7 +33,7 @@ alert("{{ message }}")
       <!-- partial:partials/_sidebar.html -->
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-            <h1>Quiz_Game</h1>
+            <h1>Brainiac</h1>
 {#          <a class="sidebar-brand brand-logo" href="index.html"><img src="{% static 'assets/images/logo.svg' %}" alt="logo" /></a>#}
 {#          <a class="sidebar-brand brand-logo-mini" href="index.html"><img src="{% static 'assets/images/logo-mini.svg' %}" alt="logo" /></a>#}
         </div>
@@ -171,14 +171,14 @@ alert("{{ message }}")
                         {% for i in  Questions %}
                       <div class="form-group">
                         <label for="exampleInputUsername1">First question</label>
-                        <input type="text" class="form-control"  id="exampleInputUsername1" name="question1" value="{{ i.Question1 }}" placeholder="{{ i.Question1 }}">
+                        <input type="text" class="form-control"  id="exampleInputUsername1" name="question1" value="{{ i.Question1 }}" placeholder="{{ i.Question1 }}" required="">
                       </div>
 {#                      <div class="form-group">#}
 {#                        <label for="exampleInputPassword1">Answer1</label>#}
 {#                        <input type="text" class="form-control" disabled="disabled" id="exampleInputPassword1" name="answer1" placeholder="{{ i.answer1 }}">#}
 {#                      </div>#}
                       <ol>  {% for j in i.options1 %}
-                            <input type="checkbox" id="vehicle1" name="options1" value="{{ j }}">
+                            <input type="radio" id="vehicle1" name="options1" value="{{ j }}" required="">
                             <label for="vehicle1">{{ j }}</label><br>
                             {% endfor %}
                       </ol>
@@ -186,60 +186,60 @@ alert("{{ message }}")
 
                       <div class="form-group">
                         <label for="exampleInputUsername1">Second question</label>
-                        <input type="text" class="form-control"  id="exampleInputUsername1" name="question2" value="{{ i.Question2 }}" placeholder="{{ i.Question2 }}">
+                        <input type="text" class="form-control"  id="exampleInputUsername1" name="question2" value="{{ i.Question2 }}" placeholder="{{ i.Question2 }}" required="">
                       </div>
 {#                      <div class="form-group">#}
 {#                        <label for="exampleInputPassword1">Answer2</label>#}
 {#                        <input type="text" class="form-control" disabled="disabled" id="exampleInputPassword1" name="answer2" placeholder="{{ i.answer2 }}">#}
 {#                      </div>#}
                         <ol>  {% for j in i.options2 %}
-                            <input type="checkbox" id="vehicle1" name="options2" value="{{ j }}">
+                            <input type="radio" id="vehicle1" name="options2" value="{{ j }}" required="">
                             <label for="vehicle1">{{ j }}</label><br>
                             {% endfor %}
                       </ol>
 
                       <div class="form-group">
                         <label for="exampleInputUsername1">Third question</label>
-                        <input type="text" class="form-control"  id="exampleInputUsername1" name="question3" value="{{ i.Question3 }}" placeholder="{{ i.Question3 }}">
+                        <input type="text" class="form-control"  id="exampleInputUsername1" name="question3" value="{{ i.Question3 }}" placeholder="{{ i.Question3 }}" required="">
                       </div>
 {#                      <div class="form-group">#}
 {#                        <label for="exampleInputPassword1">Answer3</label>#}
 {#                        <input type="text" class="form-control"  disabled="disabled" id="exampleInputPassword1" name="answer3" placeholder="{{ i.answer3 }}">#}
 {#                      </div>#}
                       <ol>  {% for j in i.options3 %}
-                            <input type="checkbox" id="vehicle1" name="options3" value="{{ j }}">
+                            <input type="radio" id="vehicle1" name="options3" value="{{ j }}" required="">
                             <label for="vehicle1">{{ j }}</label><br>
                             {% endfor %}
                       </ol>
 
                        <div class="form-group">
                         <label for="exampleInputUsername1">Forth question</label>
-                        <input type="text" class="form-control"  id="exampleInputUsername1" name="question4" value="{{ i.Question4 }}" placeholder="{{ i.Question4 }}">
+                        <input type="text" class="form-control"  id="exampleInputUsername1" name="question4" value="{{ i.Question4 }}" placeholder="{{ i.Question4 }}" required="">
                       </div>
 {#                       <div class="form-group">#}
 {#                        <label for="exampleInputPassword1">Answer4</label>#}
 {#                        <input type="text" class="form-control" disabled="disabled" id="exampleInputPassword1" name="answer4" placeholder="{{ i.answer4 }}">#}
 {#                      </div>#}
                       <ol>  {% for j in i.options4 %}
-                            <input type="checkbox" id="vehicle1" name="options4" value="{{ j }}">
+                            <input type="radio" id="vehicle1" name="options4" value="{{ j }}" required="">
                             <label for="vehicle1">{{ j }}</label><br>
                             {% endfor %}
                       </ol>
 
                       <div class="form-group">
                         <label for="exampleInputUsername1">Fifth question</label>
-                        <input type="text" class="form-control" id="exampleInputUsername1"  name="question5" value="{{ i.Question5 }}" placeholder="{{ i.Question5 }}">
+                        <input type="text" class="form-control" id="exampleInputUsername1"  name="question5" value="{{ i.Question5 }}" placeholder="{{ i.Question5 }}" required="">
                       </div>
 {#                       <div class="form-group">#}
 {#                        <label for="exampleInputPassword1">Answer5</label>#}
 {#                        <input type="text" class="form-control" id="exampleInputPassword1" disabled="disabled" name="answer5" placeholder="{{ i.answer5 }}">#}
 {#                      </div>#}
                       <ol>  {% for j in i.options5 %}
-                            <input type="checkbox" id="vehicle1" name="options5" value="{{ j }}">
+                            <input type="radio" id="vehicle1" name="options5" value="{{ j }}" required="">
                             <label for="vehicle1">{{ j }}</label><br>
                             {% endfor %}
                       </ol>
-                            <input type="hidden" id="vehicle1" name="Staff_id" value="{{ i.Staff.id }}">
+                            <input type="hidden" id="vehicle1" name="Staff_id" value="{{ i.Staff.id }}" >
                             <input type="hidden" id="vehicle1" name="div_id" value="{{ i.Division.id }}">
                         {% endfor %}
 

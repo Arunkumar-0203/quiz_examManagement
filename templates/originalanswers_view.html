@@ -115,7 +115,10 @@ alert("{{ message }}")
               <span class="menu-title">View Answers</span>
             </a>
           </li>
-          <li class="nav-item menu-items">
+
+
+
+           <li class="nav-item menu-items">
             <a class="nav-link" href="Login">
               <span class="menu-icon">
                 <i class="mdi mdi-table-large"></i>
@@ -123,31 +126,9 @@ alert("{{ message }}")
               <span class="menu-title">Log Out</span>
             </a>
           </li>
-
-        </ul>
       </nav>
       <!-- partial -->
-      <div class="container-fluid page-body-wrapper">
-        <!-- partial:partials/_navbar.html -->
-        <nav class="navbar p-0 fixed-top d-flex flex-row">
-          <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
-            <a class="navbar-brand brand-logo-mini" href="index.html"><img src="{% static 'assets/images/logo-mini.svg' %}" alt="logo" /></a>
-          </div>
-          <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
-            <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
-              <span class="mdi mdi-menu"></span>
-            </button>
-            <ul class="navbar-nav w-100">
-              <li class="nav-item w-100">
-                <form class="nav-link mt-2 mt-md-0 d-none d-lg-flex search">
-                  <input type="text" class="form-control" placeholder="Search products">
-                </form>
-              </li>
-            </ul>
-
-        </nav>
-        <!-- partial -->
-        <div class="main-panel">
+                <div class="main-panel">
           <div class="content-wrapper">
             <div class="row">
               <div class="col-12 grid-margin stretch-card">
@@ -158,7 +139,7 @@ alert("{{ message }}")
                         <img src="{% static 'assets/images/dashboard/Group126@2x.png' %}" class="gradient-corona-img img-fluid" alt="">
                       </div>
                       <div class="col-5 col-sm-7 col-xl-8 p-0">
-                          <h4 class="mb-1 mb-sm-0">Student</h4>
+                          <h4>Staff</h4>
                         <h4 class="mb-1 mb-sm-0">Want even more features?</h4>
                         <p class="mb-0 font-weight-normal d-none d-sm-block"><h1>Quiz Game Competition</h1></p>
                       </div>
@@ -172,130 +153,132 @@ alert("{{ message }}")
                 </div>
               </div>
             </div>
+      <div class="main-panel">
+          <div class="content-wrapper">
+            <div class="page-header">
+              <h3 class="page-title"> Answers</h3>
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="#">Forms</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Form elements</li>
+                </ol>
+              </nav>
+            </div>
             <div class="row">
-              <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
+              <div class="col-md-6 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <div class="row">
-                      <div class="col-9">
-{#                        <div class="d-flex align-items-center align-self-start">#}
-{#                          <h3 class="mb-0">$12.34</h3>#}
-{#                          <p class="text-success ml-2 mb-0 font-weight-medium">+3.5%</p>#}
+{#                    <p class="card-description"> Basic form layout </p>#}
+                    <form action="" method="POST" class="forms-sample">
+                        {% csrf_token %}
+                        {% for i in  Answers %}
+                      <div class="form-group">
+                        <label for="exampleInputUsername1">First question</label>
+                        <input type="text" class="form-control" disabled="disabled" id="exampleInputUsername1" name="question1" placeholder="{{ i.Question1 }}">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputPassword1">Answer1</label>
+                        <input type="text" class="form-control" disabled="disabled" id="exampleInputPassword1" name="answer1" placeholder="{{ i.answer1 }}">
+                      </div>
+                      <ol>  {% for j in i.options1 %}
+                            <input type="checkbox" id="vehicle1" name="options1" value="">
+                            <label for="vehicle1">{{ j }}</label><br>
+                            {% endfor %}
+                      </ol>
+
+
+                      <div class="form-group">
+                        <label for="exampleInputUsername1">Second question</label>
+                        <input type="text" class="form-control" disabled="disabled" id="exampleInputUsername1" name="question2" placeholder="{{ i.Question2 }}">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputPassword1">Answer2</label>
+                        <input type="text" class="form-control" disabled="disabled" id="exampleInputPassword1" name="answer2" placeholder="{{ i.answer2 }}">
+                      </div>
+                        <ol>  {% for j in i.options2 %}
+                            <input type="checkbox" id="vehicle1" name="options2" value="">
+                            <label for="vehicle1">{{ j }}</label><br>
+                            {% endfor %}
+                      </ol>
+
+                      <div class="form-group">
+                        <label for="exampleInputUsername1">Third question</label>
+                        <input type="text" class="form-control" disabled="disabled" id="exampleInputUsername1" name="question3" placeholder="{{ i.Question3 }}">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputPassword1">Answer3</label>
+                        <input type="text" class="form-control"  disabled="disabled" id="exampleInputPassword1" name="answer3" placeholder="{{ i.answer3 }}">
+                      </div>
+                      <ol>  {% for j in i.options3 %}
+                            <input type="checkbox" id="vehicle1" name="options3" value="">
+                            <label for="vehicle1">{{ j }}</label><br>
+                            {% endfor %}
+                      </ol>
+
+                       <div class="form-group">
+                        <label for="exampleInputUsername1">Forth question</label>
+                        <input type="text" class="form-control" disabled="disabled" id="exampleInputUsername1" name="question4" placeholder="{{ i.Question4 }}">
+                      </div>
+                       <div class="form-group">
+                        <label for="exampleInputPassword1">Answer4</label>
+                        <input type="text" class="form-control" disabled="disabled" id="exampleInputPassword1" name="answer4" placeholder="{{ i.answer4 }}">
+                      </div>
+                      <ol>  {% for j in i.options4 %}
+                            <input type="checkbox" id="vehicle1" name="options4" value="">
+                            <label for="vehicle1">{{ j }}</label><br>
+                            {% endfor %}
+                      </ol>
+
+                      <div class="form-group">
+                        <label for="exampleInputUsername1">Fifth question</label>
+                        <input type="text" class="form-control" id="exampleInputUsername1" disabled="disabled" name="question5" placeholder="{{ i.Question5 }}">
+                      </div>
+                       <div class="form-group">
+                        <label for="exampleInputPassword1">Answer5</label>
+                        <input type="text" class="form-control" id="exampleInputPassword1" disabled="disabled" name="answer5" placeholder="{{ i.answer5 }}">
+                      </div>
+                      <ol>  {% for j in i.options5 %}
+                            <input type="checkbox" id="vehicle1" name="options6" value="">
+                            <label for="vehicle1">{{ j }}</label><br>
+                            {% endfor %}
+                      </ol>
+                        {% endfor %}
+
+{#                      <button type="submit" class="btn btn-primary mr-2">Submit</button>#}
+{#                      <button class="btn btn-dark">Cancel</button>#}
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 grid-margin stretch-card">
+{#                <div class="card">#}
+{#                  <div class="card-body">#}
+{#                    <h4 class="card-title">Sign in Form</h4>#}
+{#                    <p class="card-description"> Horizontal form layout </p>#}
+{#                    <form class="forms-sample">#}
+{##}
+{#                      <div class="form-group row">#}
+{#                        <label for="exampleInputPassword2" class="col-sm-3 col-form-label">Username</label>#}
+{#                        <div class="col-sm-9">#}
+{#                          <input type="text" class="form-control" id="exampleInputPassword2" name="username" placeholder="Username">#}
 {#                        </div>#}
-                      </div>
-                      <div class="col-3">
-                        <div class="icon icon-box-success ">
-                          <span class="mdi mdi-arrow-top-right icon-item"></span>
-                        </div>
-                      </div>
-                    </div>
-{#                    <h6 class="text-muted font-weight-normal">Potential growth</h6>#}
-                  </div>
-                </div>
-              </div>
-              <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body">
-                    <div class="row">
-                      <div class="col-9">
-{#                        <div class="d-flex align-items-center align-self-start">#}
-{#                          <h3 class="mb-0">$17.34</h3>#}
-{#                          <p class="text-success ml-2 mb-0 font-weight-medium">+11%</p>#}
+{#                      </div>#}
+{#                      <div class="form-group row">#}
+{#                        <label for="exampleInputConfirmPassword2" class="col-sm-3 col-form-label">Password</label>#}
+{#                        <div class="col-sm-9">#}
+{#                          <input type="password" class="form-control" id="exampleInputConfirmPassword2" name="password" placeholder="Password">#}
 {#                        </div>#}
-                      </div>
-                      <div class="col-3">
-                        <div class="icon icon-box-success">
-                          <span class="mdi mdi-arrow-top-right icon-item"></span>
-                        </div>
-                      </div>
-                    </div>
-{#                    <h6 class="text-muted font-weight-normal">Revenue current</h6>#}
+{#                      </div>#}
+{##}
+{#                      <center><button type="submit" class="btn btn-primary mr-2">Submit</button></center>#}
+{##}
+{#                    </form>#}
                   </div>
                 </div>
               </div>
-              <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body">
-                    <div class="row">
-                      <div class="col-9">
-{#                        <div class="d-flex align-items-center align-self-start">#}
-{#                          <h3 class="mb-0">$12.34</h3>#}
-{#                          <p class="text-danger ml-2 mb-0 font-weight-medium">-2.4%</p>#}
-{#                        </div>#}
-                      </div>
-                      <div class="col-3">
-                        <div class="icon icon-box-danger">
-                          <span class="mdi mdi-arrow-bottom-left icon-item"></span>
-                        </div>
-                      </div>
-                    </div>
-{#                    <h6 class="text-muted font-weight-normal">Daily Income</h6>#}
-                  </div>
-                </div>
-              </div>
-              <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body">
-                    <div class="row">
-                      <div class="col-9">
-{#                        <div class="d-flex align-items-center align-self-start">#}
-{#                          <h3 class="mb-0">$31.53</h3>#}
-{#                          <p class="text-success ml-2 mb-0 font-weight-medium">+3.5%</p>#}
-{#                        </div>#}
-                      </div>
-                      <div class="col-3">
-                        <div class="icon icon-box-success ">
-                          <span class="mdi mdi-arrow-top-right icon-item"></span>
-                        </div>
-                      </div>
-                    </div>
-{#                    <h6 class="text-muted font-weight-normal">Expense current</h6>#}
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="row ">
-              <div class="col-12 grid-margin">
-                <div class="card">
-                  <div class="card-body">
-                    <h4 class="card-title">Quis Game Conducting Staff</h4>
-                    <div class="table-responsive">
-                      <table class="table">
-                          <tr>
-                            <th> Name </th>
-                            <th> Phone No </th>
-                            <th> email </th>
-                            <th> division </th>
-{#                            <th> Remove </th>#}
-                          </tr>
-                          {% for i in Staff %}
-                          <tr>
-
-                            <td> {{ i.user.username }} </td>
-                            <td> {{ i.phone }}</td>
-                            <td> {{ i.user.email }}</td>
-                            <td> {{ i.division.division }} </td>
-{#                            <td>#}
-{#                              <a href="remove_staff?id={{ i.id }}" class="badge badge-outline-success">Remove</a>#}
-{#                            </td>#}
-
-                          </tr>
-                          {% endfor %}
-
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-
-
           <!-- content-wrapper ends -->
           <!-- partial:partials/_footer.html -->
-          <footer class="footer">
+           <footer class="footer">
             <div class="d-sm-flex justify-content-center justify-content-sm-between">
               <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Cyber prism © software solutions.com 2020</span>
 {#              <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"><a href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank">Quiz Game Competition.com</span>#}

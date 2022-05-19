@@ -272,7 +272,7 @@ class select_questionview(TemplateView):
         stf=staff.objects.get(id=staff_id)
         print(stf)
         paper.Staff_id=stf.id
-        paper.Division=Div_id
+        paper.Division_id=Div_id
         paper.Users_id=user.id
         paper.Question1=Question1
         paper.answer1=Option1
@@ -295,7 +295,7 @@ class staffViews_Answers(TemplateView):
         context = super(staffViews_Answers,self).get_context_data(**kwargs)
 
         staf=staff.objects.get(user=self.request.user.id)
-        answers=Answers.objects.filter(Users_id=staf.id,status='submited')
+        answers=Answers.objects.filter(Staff_id=staf.id,status='submited')
         print(answers)
         context['Answers']=answers
         return context
@@ -370,4 +370,11 @@ class expire_questions(View):
         QS.save()
         return redirect(request.META['HTTP_REFERER'])
 
-
+class view_originalanswers(TemplateView):
+    template_name = 'originalanswers_view.html'
+    def get_context_data(self, **kwargs):
+        id=self.request.GET['id']
+        context=super(view_originalanswers,self).get_context_data(**kwargs)
+        QS=Answers.objects.filter(Users_id=self.request.user.id,Division_id=id)
+        context['Answers']=QS
+        return context
